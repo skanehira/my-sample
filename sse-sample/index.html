@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <table border=1>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Todo</td>
+      </tr>
+      <tr v-for="todo in todos">
+        <td>{{todo.id}}</td>
+        <td>{{todo.name}}</td>
+        <td>{{todo.todo}}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+<script src="index.js"></script>
+</html>
