@@ -42,6 +42,9 @@ func main() {
 			flusher.Flush()
 			time.Sleep(1 * time.Second)
 		}
+
+		fmt.Fprintf(w, "data: %s\n\n", `{"status": "complete"}`)
+		flusher.Flush()
 		<-r.Context().Done()
 		log.Println("event send done")
 	})

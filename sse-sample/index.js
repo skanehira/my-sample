@@ -5,10 +5,14 @@ const app = new Vue({
   },
   mounted(){
     const ev = new EventSource("/todos");
-    ev.addEventListener("message", e => {
-      const todo = JSON.parse(e.data);
-      this.todos.push(todo);
-    })
+    ev.onmessage = (e) => {
+      const data = JSON.parse(e.data);
+      if (data.status && data.status === 'complete') {
+        ev.close()
+      } else {
+        this.todos.push(data);
+      }
+    }
   },
 })
 
